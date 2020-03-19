@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <form class="login100-form validate-form flex-sb flex-w" method='POST' action='{{ path('submit') }}'>
+        <span class="login100-form-title p-b-30">
+            Attestation de déplacement dérogatoire
+        </span>
+        <span>- A remplir pour chaque déplacement exceptionnel</span>
+        <i> !! site est hébergé en france. Aucune donnée n'est sauvegardée ou envoyée. !! </i>
+        <br/>
+        {#<a href="#" class="btn-face m-b-20">
+            <i class="fa fa-facebook-official"></i>
+            Facebook
+        </a>
+    
+        <a href="#" class="btn-google m-b-20">
+            <img src="images/icons/icon-google.png" alt="GOOGLE">
+            Google
+        </a>#}
+
+        <div class='row'>
+            <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                    Nom - Prénom
+                </span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="name" required>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                    Né(e) le
+                </span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="date" name="naissance" required>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                    Adresse de domicile
+                </span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input type='text' class="input100" name="adresse" required>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                    Motif de déplacement
+                </span>
+            </div>
+            <br>
+            <div style='width: 100%;'>
+                <label><input type='radio' name='motif' value='1' required>
+                    déplacements entre le domicile et le lieu d’exercice de l’activité professionnelle, lorsqu’ils sont indispensables à l’exercice d’activités ne pouvant être organisées sous forme de télétravail (sur justificatif permanent) ou déplacements professionnels ne pouvant être différés ;
+                </label><br>
+                <label><input type='radio' name='motif' value='2'  required>
+                    déplacements pour effectuer des achats de première nécessité dans des établissements autorisés (liste sur gouvernement.fr) ;
+                </label><br>
+                <label><input type='radio' name='motif' value='3' required>
+                    déplacements pour motif de santé ;
+                </label><br>
+                <label><input type='radio' name='motif' value='4' required>
+                    déplacements pour motif familial impérieux, pour l’assistance aux personnes vulnérables ou la garde d’enfants ;
+                </label><br>
+                <label><input type='radio' name='motif' value='5' required>
+                    déplacements brefs, à proximité du domicile, liés à l’activité physique individuelle des personnes, à l’exclusion de toute pratique sportive collective, et aux besoins des animaux de compagnie.
+                </label><br>
+            </div>
+            <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                    Fait à
+                </span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input type='text' class="input100" name="ville" required>
+                <span class="focus-input100"></span>
+            </div>
+
+
+            <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                    Le
+                </span>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type='date' name="date" required value='{{ 'now'|date("Y-m-d") }}'>
+
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                    Signature
+                </span>
+                <br/>
+                <canvas style="border: 1px solid black" id="signature" width="400" height="300"></canvas>
+                <input type='hidden' name='signature_val'/>
+                <br/>
+                <a href="javascript:;" id="clear_btn">Effacer</a>
+            </div>
+            <div class="container-login100-form-btn m-t-17 m-b-20">
+{#                <canvas style="border: 1px solid black" id="signature" width="400" height="300"></canvas>#}
+
+                <small>Le site est hébergé en france. Conforme RGPD. Aucune donnée n'est sauvegardée ou envoyée.<BR/>
+                </small>
+                {#<a class="login100-form-btn"
+                   href="/Attestation_de_deplacement_derogatoire.pdf" class="button fit scrolly" target="_blank">
+                    <i class="fa fa-download"></i> Télécharger ici</a>#}
+                <button class="login100-form-btn"
+                        type='submit' class="button fit scrolly">
+                    <i class="fa fa-download"></i>&nbsp;Télécharger</button>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}

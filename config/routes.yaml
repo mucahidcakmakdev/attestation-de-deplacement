@@ -1,0 +1,7 @@
+index:
+    path: /
+    controller: App\Controller\HomeController::index
+submit:
+    path: /attestation
+    methods: POST
+    controller: App\Controller\HomeController::submit
